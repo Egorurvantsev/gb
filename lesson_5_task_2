@@ -1,0 +1,6 @@
+text = open('my_file_2.txt', 'r', encoding='utf-8')
+content = text.readlines()
+print(f'В тексте - {len(content)} строк')
+for n in range(0, len(content)):
+    print(f"В {n + 1} строке {len(content[n].split(' '))} слов")
+text.close()

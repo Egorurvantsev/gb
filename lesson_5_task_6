@@ -1,0 +1,21 @@
+stat = open('my_file_6.txt', 'r+', encoding='utf-8')
+a = stat.readlines()
+dis = [b[:b.index(':')] for b in a]
+hours = [b[b.index(':') + 2:] for b in a]
+r = []
+for b in hours:
+    x = b.split(' ')
+    s = 0
+    for n in range(0, 3):
+        try:
+            d = int(x[n][:x[n].index('(')])
+        except ValueError:
+            d = 0
+        s = s + d
+    r.append(s)
+h = {}
+for m in range(0, len(dis)):
+    new_dict = {dis[m]: r[m]}
+    h.update(new_dict)
+print(h)
+stat.close()

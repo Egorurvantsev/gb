@@ -1,0 +1,14 @@
+stat = open('my_file_4.txt', 'r+', encoding='utf-8')
+content = stat.readlines()
+print(content)
+con = ['One', 'Two', 'Three', 'Four']
+new_con = ['Один', 'Два', 'Три', 'Четырe']
+new_stat = open('my_file_4.1.txt', 'w+', encoding='utf-8')
+for n in range(0, len(content) - 1):
+    b = content[n].replace(con[n], new_con[n])
+    new_stat.write(f'{b}')
+new_stat.seek(0)
+a = new_stat.readlines()
+print(a)
+new_stat.close()
+stat.close()

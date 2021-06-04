@@ -1,0 +1,11 @@
+stat = open('my_file_3.txt', 'r', encoding='utf-8')
+content = stat.readlines()
+print('Следующие сотрудники имеют оклад менее 20000:')
+for n in range(0, len(content) - 1):
+    if int(content[n].split(' ')[1]) < 20000:
+        print(content[n].split(' ')[0])
+s = 0
+for n in range(0, len(content) - 1):
+    s = s + int(content[n].split(' ')[1])
+print(f'Средний оклад в фирме составляет - {s / len(content):.2f} рублей.')
+stat.close()

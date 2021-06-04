@@ -1,0 +1,6 @@
+text = open('my_file.txt', 'w', encoding='utf-8')
+b = ' '
+while b != '':
+    b = input('Введите строку текста: ')
+    text.write(f'{b}\n')
+text.close()

@@ -1,0 +1,10 @@
+numb = open('my_file_5.txt', 'w+', encoding='utf-8')
+b = input('Введите набор чисел через пробел: ')
+numb.write(f'{b}')
+numb.seek(0)
+c = numb.read().split(' ')
+s = 0
+for n in range(0, len(c)):
+    s = s + int(c[n])
+print(s)
+numb.close()

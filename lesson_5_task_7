@@ -1,0 +1,16 @@
+import json
+with open('my_file_7.txt', encoding='utf-8') as stat:
+    c = stat.readlines()
+    g = {}
+    s = 0
+    h = 0
+    for a in c:
+        new_dict = {a.split(' ')[0]: int(a.split(' ')[2]) - int(a.split(' ')[3])}
+        g.update(new_dict)
+        if int(a.split(' ')[2]) - int(a.split(' ')[3]) >= 0:
+            s = s + int(a.split(' ')[2]) - int(a.split(' ')[3])
+            h+=1
+    result = [g, {'average_profit': f'{s / h:.2f}'}]
+    print(result)
+with open('my_file_7.json', 'w+', encoding='utf-8') as k:
+    json.dump(result, k)
