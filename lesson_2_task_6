@@ -1,0 +1,31 @@
+m = int(input("Введите количество наименований товаров:  "))
+my_list = []
+n = 1
+while n <= m:
+    Name = input(f"Введите  название {n} - го товара:  ")
+    cost = int(input("Введите цену этого товара:  "))
+    vol = int(input("Введите количество этого товаров:  "))
+    new_dict = dict(название=Name, цена=cost, количество=vol, ед='шт')
+    new_list = [n, new_dict]
+    my_tuple = tuple(new_list)
+    my_list.append(my_tuple)
+    n = n + 1
+for a in my_list:
+    print(a)
+my_dict = {}
+my_name = []
+my_cost = []
+my_vol = []
+for a in my_list:
+    b = list(a)
+    my_name.append(b[1].get('название'))
+    my_cost.append(b[1].get('цена'))
+    my_vol.append(b[1].get('количество'))
+my_dict = dict(название=my_name)
+new_dict = dict(цена=my_cost)
+my_dict.update(new_dict)
+new_dict = dict(количество=my_vol)
+my_dict.update(new_dict)
+new_dict = dict(ед=['шт'])
+my_dict.update(new_dict)
+print(my_dict)

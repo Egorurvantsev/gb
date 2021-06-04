@@ -1,0 +1,16 @@
+n = int(input("Введите целое положительное число: "))
+my_list = []
+while n:
+    a = input('Введите следующий элемент:')
+    my_list.append(a)
+    n = n - 1
+b = 0
+my_list_1 = []
+while b < len(my_list) - 1:
+    my_list_1.insert(b, my_list[b + 1])
+    my_list_1.insert(b + 1, my_list[b])
+    b = b + 2
+if len(my_list) != len(my_list_1):
+    my_list_1.append(my_list[-1])
+print(my_list)
+print(my_list_1)
