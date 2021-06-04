@@ -1,0 +1,9 @@
+from itertools import count
+
+n = int(input('Введите целое положительное число:'))
+c = int(input('Введите верхнюю границу:'))
+for a in count(n):
+    if a > c:
+        break
+    else:
+        print(a)

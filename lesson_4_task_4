@@ -1,0 +1,2 @@
+my_list = input("Введите набор чисел: ").split(' ')
+print([a for a in my_list if my_list.count(a) == 1])

@@ -1,0 +1,7 @@
+from sys import argv
+
+script_name, x, y, p = argv
+print('Выработка в часах: ', x)
+print('Ставка/ч: ', y)
+print('Премия: ', p)
+print(f"Зарплата: {int(x) * int(y) + int(p)}")

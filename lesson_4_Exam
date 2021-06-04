@@ -1,0 +1,3 @@
+my_dict = dict(key_1='a', key_2='b')
+for key in my_dict:
+    print('ключу', key, 'соответствует значение', my_dict.get(key))

@@ -1,0 +1,9 @@
+def fact(n):
+    f = 1
+    for k in range(0, n):
+        f = f * (k + 1)
+        yield f
+
+
+for f in fact(4):
+    print(f)
