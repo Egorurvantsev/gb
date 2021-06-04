@@ -1,0 +1,4 @@
+age = int(input("Сколько Вам лет: "))
+print(age)
+s = str(input("Введите Ваше имя: "))
+print(f"Вас зовут {s} и вам {age} лет")
