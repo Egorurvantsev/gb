@@ -1,0 +1,7 @@
+def my_func(x, y):
+    return f'число {x} в степени {y} равно {x ** y:.3f}'
+
+
+x = float(input('Введите основание степени х: '))
+y = int(input('Введите целую отрицательное число y: '))
+print(my_func(x, y))

@@ -1,0 +1,10 @@
+def data_base(var_1, var_2, var_3, var_4, var_5, var_6):
+       return f"{var_1} {var_2}, {var_3}г.р., гор. {var_4}, email:{var_5}, т.{var_6}"
+
+var_1 = input("Введите Ваше имя: ")
+var_2 = input("Введите Вашу фамилию: ")
+var_3 = input("Введите Ваш год рождения: ")
+var_4 = input("Введите Ваше местожительство: ")
+var_5 = input("Введите Ваш эл. адрес: ")
+var_6 = input("Введите Ваш телефон: ")
+print(data_base(var_1, var_2, var_3, var_4, var_5, var_6))

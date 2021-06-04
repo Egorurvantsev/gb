@@ -1,0 +1,7 @@
+def my_func(x, y, z):
+    return f'сумма наибольших двух чисел из трех чисел {y}, {x}, {z} равна {x + y + z - min(x, y, z)}'
+
+x = float(input('Введите первое число:'))
+y = float(input('Введите второе число:'))
+z = float(input('Введите третье число:'))
+print(my_func(x, y, z))

@@ -1,0 +1,12 @@
+def rel(var_1, var_2):
+    try:
+        var_1 / var_2
+    except ZeroDivisionError:
+        print('Делить на ноль нельзя!!!')
+        return
+    return f'{var_1 / var_2:.2f}'
+
+
+var_1 = float(input('Введите делимое: '))
+var_2 = float(input('Введите делитель: '))
+print(rel(var_1, var_2))

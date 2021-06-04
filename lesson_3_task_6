@@ -1,0 +1,12 @@
+def int_func(s):
+    return s.title()
+
+
+s = input('Введите слова через пробел с маленькими буквами:')
+my_list = s.split(' ')
+new_list = []
+n = 0
+while n < len(my_list):
+    new_list.append(int_func(my_list[n]))
+    n+=1
+print(' '.join(new_list))

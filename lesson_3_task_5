@@ -1,0 +1,26 @@
+def num(s):
+    my_list = s.split(' ')
+    n = 0
+    p = 0
+    i = 0
+    while n < len(my_list):
+        if my_list[n] == 'q':
+            i = 1
+            break
+        else:
+            p = p + float(my_list[n])
+            n+=1
+    return p, i
+
+
+print('Для завершение программы введите q')
+k = 0
+sum = 0
+while k == 0:
+    s = input('Введите числа через пробел: ')
+    k = num(s)[1]
+    sum = sum + num(s)[0]
+    if k == 0:
+        print(f'Сумма введеных чисел равна {sum}')
+    else:
+        print(f'Сумма всех введеных чисел равна {sum}')

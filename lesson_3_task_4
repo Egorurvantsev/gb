@@ -1,0 +1,12 @@
+def my_func(x, y):
+    n = 1
+    p = 1
+    while n <= -y:
+        p = p * x
+        n = n + 1
+    return f'число {x} в степени {y} равно {1 / p:.3f}'
+
+
+x = float(input('Введите основание степени х: '))
+y = int(input('Введите целую отрицательное число y: '))
+print(my_func(x, y))
