@@ -1,0 +1,27 @@
+USE vk;
+DROP TABLE IF EXISTS geography;
+CREATE TABLE geography (
+	g_id BIGINT UNSIGNED NOT NULL,
+	home_country VARCHAR(30), 
+	home_city VARCHAR(30), 
+	INDEX geography_home_country_idx(home_country),
+        FOREIGN KEY (g_id) REFERENCES vk.users(id)
+);
+DROP TABLE IF EXISTS preferences;
+CREATE TABLE preferences (
+	p_id BIGINT UNSIGNED NOT NULL,
+	fow_music VARCHAR(100),
+	fow_food VARCHAR(100),
+	fow_auto VARCHAR(100),
+	creadet_at DATETIME DEFAULT NOW(), 
+	FOREIGN KEY (p_id) REFERENCES vk.users(id)
+);
+DROP TABLE IF EXISTS education;
+CREATE TABLE education (
+	ed_id  BIGINT UNSIGNED NOT NULL,
+	educ VARCHAR(50),
+	spec VARCHAR(50),
+	sec_educ VARCHAR(50),
+	updated_at DATETIME on update CURRENT_TIMESTAMP,
+	FOREIGN KEY (ed_id) REFERENCES vk.users(id)
+);	
