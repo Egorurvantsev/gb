@@ -1,0 +1,36 @@
+use vk;
+
+drop table if exists logs;
+create table logs (
+	id SERIAL, 
+	created_at datetime,
+	name_table varchar(8),
+	table_id bigint unsigned not null,
+	value_name varchar(100)	
+) ENGINE=ARCHIVE;
+
+
+DELIMITER //
+drop trigger if exists arch//
+CREATE TRIGGER arch after insert on vk.users
+FOR EACH ROW 
+begin
+	insert into vk.logs (created_at, name_table, table_id, value_name)
+	values (now(), 'users', new.id, new.firstname);
+end//
+
+drop trigger if exists arch1//
+CREATE TRIGGER arch1 after insert on vk.products
+FOR EACH ROW 
+begin
+	insert into vk.logs (created_at, name_table, table_id, value_name)
+	values (now(), 'products', new.id, new.name);
+end//
+
+drop trigger if exists arch2//
+CREATE TRIGGER arch2 after insert on vk.catalogs
+FOR EACH ROW 
+begin
+	insert into vk.logs (created_at, name_table, table_id, value_name)
+	values (now(), 'catalogs', new.id, new.name);
+end//
