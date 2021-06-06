@@ -1,0 +1,5 @@
+use vk;
+
+SELECT distinct firstname
+FROM users
+ORDER BY firstname asc;
