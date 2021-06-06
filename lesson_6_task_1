@@ -1,0 +1,6 @@
+use vk;
+select from_user_id, count(*) as count 
+from messages 
+where to_user_id = 6 -- выбранный пользователь под id 6
+group by from_user_id
+order by count desc limit 1;

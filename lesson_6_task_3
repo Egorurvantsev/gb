@@ -1,0 +1,10 @@
+use vk;
+
+select 'мужчина', count(*) as count 
+from likes
+where user_id in (select user_id from profiles where gender = 'm')
+union 
+select 'женщина', count(*) as count
+from likes
+where user_id in (select user_id from profiles where gender = 'w')
+order by count desc limit 1;

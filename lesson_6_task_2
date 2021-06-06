@@ -1,0 +1,8 @@
+use vk;
+
+select 
+count(*) as summa
+from likes  
+where to_user_id in (select user_id 
+from profiles 
+where age < 10);
