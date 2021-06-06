@@ -1,0 +1,12 @@
+n = int(input('Ведите число'))
+sp = []
+while n != 0:
+    if n % 2 == 0:
+        sp.append(0)
+        n = n // 2
+    else:
+        sp.append(1)
+        n = (n-1) // 2
+print(sp)
+s = sp.reverse()
+print(s)
