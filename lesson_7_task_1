@@ -1,0 +1,7 @@
+use vk;
+
+
+select id, firstname as name, lastname
+from users
+where id in (select user_id from orders)
+order by id;

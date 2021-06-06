@@ -1,0 +1,5 @@
+use vk;
+
+select id, (select name from cities where label = `from`), 
+(select name from cities where label = `to`) 
+from flights
