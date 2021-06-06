@@ -1,0 +1,5 @@
+drop database if exists sample;
+create database if not exists sample;
+use example;
+mysqldump example > dumpexample.sql;
+mysql sample < dumpexample.sql;
