@@ -1,0 +1,4 @@
+use shop;
+create view prot_cat as select p.name as product, c.name as types
+from products as p  
+join catalogs as c on catalog_id = c.id;

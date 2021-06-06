@@ -1,0 +1,10 @@
+use vk;
+DELIMITER //
+drop trigger if exists TRGR//
+CREATE TRIGGER TRGR after insert ON vk.products 
+FOR EACH ROW 
+BEGIN
+  if ((new.name is NULL) and (new.description is NULL)) then 
+  signal sqlstate '45000' set MESSAGE_TEXT = 'Недопустимое значение';
+  end if;
+end//

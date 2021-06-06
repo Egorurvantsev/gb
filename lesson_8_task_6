@@ -1,0 +1,5 @@
+use shop;
+start transaction;
+insert sample.users (select shop.users.* from shop.users where shop.users.id = 1);
+delete from shop.users where shop.users.id = 1;
+commit;

@@ -1,0 +1,19 @@
+delimiter //
+drop function if exists hello//
+create FUNCTION hello ()
+returns text deterministic
+begin
+	if (0 <= date_format(now(), "%H")) and (date_format(now(), "%H") <= 6) then 
+		return 'Доброй Ночи';
+	else 
+		if (7 <= date_format(now(), "%H")) and (date_format(now(), "%H") <= 12) then 
+			return 'Доброе Утро';
+		else 
+			if (13 <= date_format(now(), "%H")) and (date_format(now(), "%H") <= 18) then 
+				return 'Добрый День';
+			else 
+				return 'Доброй вечер';
+			end if;
+		end if;
+	end if;
+end//		
