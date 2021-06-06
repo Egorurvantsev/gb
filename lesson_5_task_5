@@ -1,0 +1,4 @@
+use vk;
+alter table users 
+add created_at DATETIME default NOW();
+add updated_at DATETIME default NOW();

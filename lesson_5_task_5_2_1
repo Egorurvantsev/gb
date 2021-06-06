@@ -1,0 +1,7 @@
+use vk;
+
+alter table profiles 
+add age INT not null default (year(NOW()) - year(birthday))
+;
+
+select avg(age) from profiles;

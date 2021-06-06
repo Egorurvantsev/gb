@@ -1,0 +1,7 @@
+use vk;
+alter table profiles 
+add birthchar VARCHAR(100) not null default (concat(2021, '-', month(birthday), '-', dayofmonth(birthday))),
+add wek VARCHAR(100) not null default (DAYOFWEEK(birthchar))
+;
+
+SELECT COUNT(*), wek AS weeek FROM profiles GROUP BY weeek;
