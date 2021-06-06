@@ -1,0 +1,62 @@
+class Car:
+    def __init__(self, speed, color, name, is_police):
+        self.speed = speed
+        self.color = color
+        self.name = name
+        self.is_police = is_police
+
+    def go(self):
+        print('Врум, врум, машина поехала')
+
+    def show_speed(self):
+        print(self.speed)
+
+    def stop(self):
+        print('Машина стоит на месте')
+
+    def turn(self, direction):
+        print(f'Машина повернула на{self.direction}')
+
+
+class TownCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+
+    def show_speed(self):
+        if int(self.speed) > 60:
+            print('Скорость превышена')
+        else:
+            print(self.speed)
+
+
+class WorkCar(Car):
+    def __init__(self, speed, color, name, is_police):
+        super().__init__(speed, color, name, is_police)
+
+    def show_speed(self):
+        if self.speed > 40:
+            print('Скорость превышена')
+        else:
+            print(self.speed)
+
+
+class PoliceCar(Car):
+    is_police = 'True'
+
+
+class SportCar(Car):
+    color = 'red'
+
+
+t = TownCar(70, 'white', 'mazda', False)
+w = WorkCar(35, 'black', 'Белoрус', False)
+s = SportCar(200, 'yellow', 'Tesla Cybertruck', False)
+p = PoliceCar(100, 'white-blue', 'Lada', True)
+t.show_speed()
+print(t.speed)
+w.show_speed()
+print(w.name)
+print(s.color)
+print(s.is_police)
+print(p.is_police)
+print(p.name)

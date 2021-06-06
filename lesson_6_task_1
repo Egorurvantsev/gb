@@ -1,0 +1,16 @@
+import time
+class TrafficLight:
+    _color = ['red', 'yellow', 'green', 'yellow']
+
+    def running(self):
+        my_dict = {'red': 7, 'yellow': 2, 'green': 5}
+        my_list = my_dict.keys()
+        for a in my_list:
+            print(a)
+            time.sleep(my_dict.setdefault(a))
+
+b = TrafficLight()
+n = 0
+while n <= 2:
+    b.running()
+    n+=1

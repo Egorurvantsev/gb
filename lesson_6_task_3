@@ -1,0 +1,22 @@
+class Worker:
+    def __init__(self, n, s, p, _i):
+        self.n = n
+        self.s = s
+        self.p = p
+        self._i = _i
+
+
+class Position(Worker):
+    def __init__(self, n, s, p, _i):
+        super().__init__(n, s, p, _i)
+
+    def get_full_name(self):
+        return self.s + ' ' + self.n
+
+    def get_total_income(self):
+        return self._i.get('wage') + self._i.get('bonus')
+
+
+a = Position('Egor', 'Urvantsev', 'Mayor', {'wage': 11, 'bonus': 23})
+print(a.get_total_income())
+print(a.get_full_name())

@@ -1,0 +1,13 @@
+class Road:
+    def __init__(self, _length, _width, p, h):
+        self._length = _length
+        self._width = _width
+        self.p = p
+        self.h = h
+
+    def c(self):
+        return self._length * self._width * self.p * self.h
+
+
+a = Road(20, 500, 25, 0.05)
+print(a.c())
