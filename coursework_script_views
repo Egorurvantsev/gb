@@ -1,0 +1,31 @@
+use schedule;
+
+
+create view shed_Ralia as -- расписание учителя, по имени Ралия
+select t.disciplines, 'A' as parallel, sh.days, sh.start_time, sh.end_time 
+from teachers t join shed sh on t.disciplines = sh.A
+where t.firstname = 'Ралия'
+union distinct
+select t.disciplines, 'B', sh.days, sh.start_time, sh.end_time 
+from teachers t join shed sh on t.disciplines = sh.B
+where t.firstname = 'Ралия'
+union distinct 
+select t.disciplines, 'C', sh.days, sh.start_time, sh.end_time 
+from teachers t join shed sh on t.disciplines = sh.c
+where t.firstname = 'Ралия'
+order by days;
+
+
+create view cabinet22 as -- занятость 22 кабинета
+select c.lessons, sd.start_time, sd.end_time, sd.days  
+from cabinet c join shed sd on c.lessons = sd.A
+where c.id_cabinet = 22
+union 
+select c2.lessons, sd2.start_time, sd2.end_time, sd2.days  
+from cabinet c2 join shed sd2 on c2.lessons = sd2.B
+where c2.id_cabinet = 22
+union 
+select c3.lessons, sd3.start_time, sd3.end_time, sd3.days  
+from cabinet c3 join shed sd3 on c3.lessons = sd3.C
+where c3.id_cabinet = 22
+order by days;

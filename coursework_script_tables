@@ -1,0 +1,180 @@
+drop database if exists schedule;
+create database if not exists schedule;
+use schedule;
+
+
+drop table if exists skl; -- список учеников 7 парараллели
+create table if not exists skl (
+	id bigint unsigned not null auto_increment primary key,
+	parallel char(10),
+	lastname char(30),
+	firstname char(30),
+	phone bigint(11) unsigned,
+	parents_lastname char(30),
+	parents_firstname char(30),
+	phone_parents bigint(11) unsigned	
+);
+
+
+drop table if exists shed; -- расписание для 7 параллели
+create table if not exists shed (
+	id serial auto_increment,
+	days char(100),
+	start_time time,
+	end_time time,
+	A char(100),
+	B char(100),
+	C char(100)
+);
+
+
+drop table if exists cabinet; -- список кабинетов 
+create table if not exists cabinet (
+	id serial auto_increment,
+	lessons char(50),
+	id_cabinet bigint(2)
+);
+
+
+drop table if exists teachers; -- список учителей
+create table if not exists teachers (
+	id serial auto_increment,
+	lastname char(50),
+	firstname char(50),
+	patronymic char(50),
+	disciplines char(100),
+	phone bigint(11) unsigned
+);
+
+
+drop table if exists appr1; -- оценки за 1 четверть
+create table if not exists appr1 (
+	id_skl bigint unsigned auto_increment not null,
+	mathematics bigint(1),
+	physics bigint(1),
+	russian_language bigint(1),
+	english_language bigint(1),
+	geography bigint(1),
+	german_lang bigint(1),
+	history bigint(1),
+	technology bigint(1),
+	literature bigint(1),
+	bashkir_language bigint(1),
+	native_russian bigint(1),
+	native_literature bigint(1),
+	iso bigint(1),
+	music bigint(1),
+	physical_training bigint(1),
+	computer_science bigint(1),
+	society bigint(1),
+	biology bigint(1),
+	foreign key(id_skl) references skl(id)
+);
+
+
+drop table if exists appr2; -- оценки за 2 четверть
+create table if not exists appr2 (
+	id_skl2 bigint unsigned auto_increment not null,
+	mathematics bigint(1),
+	physics bigint(1),
+	russian_language bigint(1),
+	english_language bigint(1),
+	geography bigint(1),
+	german_lang bigint(1),
+	history bigint(1),
+	technology bigint(1),
+	literature bigint(1),
+	bashkir_language bigint(1),
+	native_russian bigint(1),
+	native_literature bigint(1),
+	iso bigint(1),
+	music bigint(1),
+	physical_training bigint(1),
+	computer_science bigint(1),
+	society bigint(1),
+	biology bigint(1),
+	foreign key(id_skl2) references skl(id)
+);
+
+
+drop table if exists appr3; -- оценки за 3 четверть
+create table if not exists appr3 (
+	id_skl3 bigint unsigned auto_increment not null,
+	mathematics bigint(1),
+	physics bigint(1),
+	russian_language bigint(1),
+	english_language bigint(1),
+	geography bigint(1),
+	german_lang bigint(1),
+	history bigint(1),
+	technology bigint(1),
+	literature bigint(1),
+	bashkir_language bigint(1),
+	native_russian bigint(1),
+	native_literature bigint(1),
+	iso bigint(1),
+	music bigint(1),
+	physical_training bigint(1),
+	computer_science bigint(1),
+	society bigint(1),
+	biology bigint(1),
+	foreign key(id_skl3) references skl(id)
+);
+
+
+drop table if exists appr4; -- оценки за 4 четверть
+create table if not exists appr4 (
+	id_skl4 bigint unsigned auto_increment not null,
+	mathematics bigint(1),
+	physics bigint(1),
+	russian_language bigint(1),
+	english_language bigint(1),
+	geography bigint(1),
+	german_lang bigint(1),
+	history bigint(1),
+	technology bigint(1),
+	literature bigint(1),
+	bashkir_language bigint(1),
+	native_russian bigint(1),
+	native_literature bigint(1),
+	iso bigint(1),
+	music bigint(1),
+	physical_training bigint(1),
+	computer_science bigint(1),
+	society bigint(1),
+	biology bigint(1),
+	foreign key(id_skl4) references skl(id)
+);
+
+
+drop table if exists annual; -- годовые оценки 
+create table if not exists annual (
+	id_skl5 bigint unsigned auto_increment not null,
+	mathematics bigint(1),
+	physics bigint(1),
+	russian_language bigint(1),
+	english_language bigint(1),
+	geography bigint(1),
+	german_lang bigint(1),
+	history bigint(1),
+	technology bigint(1),
+	literature bigint(1),
+	bashkir_language bigint(1),
+	native_russian bigint(1),
+	native_literature bigint(1),
+	iso bigint(1),
+	music bigint(1),
+	physical_training bigint(1),
+	computer_science bigint(1),
+	society bigint(1),
+	biology bigint(1),
+	foreign key(id_skl5) references skl(id)
+);
+
+
+drop table if exists mugs; -- список кружков для учеников
+create table if not exists mugs (
+	id_skl bigint unsigned not null,  
+	lessons char(20),
+	foreign key(id_skl) references skl(id)
+);

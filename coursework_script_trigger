@@ -1,0 +1,17 @@
+use schedule;
+
+
+delimiter //
+drop trigger if exists p_sch//
+create trigger p_sch after update on shed -- запрет на смену урока
+for each row 
+begin 
+	if (old.A is not null) then 
+	signal sqlstate '45000' set MESSAGE_TEXT = 'Занятый урок!!!';
+	end if;
+end //  
+
+delimiter ;
+
+update shed set A = 'music'
+where start_time = '18:10:00' and days = 'Mon';
